@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="CSS/style.css" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+			rel="stylesheet" />
+		<title>Mortgage repayment calculator</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="left-side">
+				<div class="title">
+					<h3>Mortgage Calculator</h3>
+					<button id="clear">Clear All</button>
+				</div>
+				<div class="input-container">
+					<span class="label">Mortgage Amount</span>
+					<div class="input">
+						<span class="icon-input icon1">£</span>
+						<input type="number" id="amount-input" />
+					</div>
+					<p class="error-msg error-amount">This field is required!</p>
+				</div>
+				<div class="row-inside-container">
+					<div class="input-container">
+						<span class="label"> Mortgage Term</span>
+						<div class="input">
+							<input type="number" id="years-input"/>
+							<span class="icon-input icon2">Years</span>
+						</div>
+						<p class="error-msg error-year">This field is required!</p>
+					</div>
+					<div class="input-container">
+						<span class="label"> Interest Rate </span>
+						<div class="input">
+							<input type="number" id="percent-input" />
+							<span class="icon-input icon3">%</span>
+						</div>
+						<p class="error-msg error-percent">This field is required!</p>
+					</div>
+				</div>
+				<div class="input-container">
+					<span class="label"> Mortgage Type </span>
+					<div class="input checkboxes">
+						<input type="checkbox" id="repayment" />
+						<label for="repayment">Repayment</label>
+					</div>
+
+					<div class="input checkboxes">
+						<input type="checkbox" id="interest-only" />
+						<label for="interest-only">Interest Only</label>
+					</div>
+
+					<p class="error-msg error-checkboxes">This field is required!</p>
+				</div>
+
+				<button id="calculate-btn">
+					<img src="assets/images/icon-calculator.svg" alt="" />Calculate
+					Repayments
+				</button>
+			</div>
+
+			<div class="right-side">
+				<img src="assets/images/illustration-empty.svg" alt="" />
+				<h3>Results shown here</h3>
+				<p>
+					Complete the form and click “calculate repayments” to see what your
+					monthly repayments would be.
+				</p>
+			</div>
+
+			<div class="right-side active">
+				<h4>Your results</h2>
+				<p>
+					Your results are shown below based on the information you provided. To
+					adjust the results, edit the form and click “calculate repayments”
+					again.
+				</p>
+				<div class="stats-container">
+					<span>Your monthly repayments</span>
+					<h4 class="monthly-payment"></h4>
+
+					<div class="line"></div>
+
+					<span>Total you'll repay over the term</span>
+
+					<h4 class="total-payment"></h4>
+				</div>
+
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>

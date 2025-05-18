@@ -1,0 +1,257 @@
+// === Primary ===
+$lime: hsl(61, 70%, 52%);
+$red: #d73328;
+
+// === Neutral ===
+$white: hsl(0, 0%, 100%);
+$slate-100: #e3f3fd;
+$slate-300: hsl(203, 41%, 72%);
+$slate-500: hsl(200, 26%, 54%);
+$slate-700: hsl(200, 24%, 40%);
+$slate-900: #122f3f;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+	min-height: 100dvh;
+	background-color: $slate-100;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	max-width: 900px;
+	width: 100%;
+	background-color: $white;
+	display: flex;
+	gap: 20px;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+	.left-side {
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		.title {
+			display: flex;
+			justify-content: space-between;
+			gap: 50px;
+
+			#clear {
+				cursor: pointer;
+				background: none;
+				border: none;
+				outline: none;
+				text-decoration: underline;
+				color: $slate-500;
+				transition: 200ms ease;
+
+				&:hover {
+					color: $slate-900;
+				}
+			}
+		}
+
+		.input-container {
+			margin-top: 25px;
+
+			.label {
+				display: inline-block;
+				font-size: 14px;
+				color: $slate-700;
+				font-weight: 600;
+			}
+
+			.input {
+				margin-top: 10px;
+				border: 1px solid $slate-300;
+				display: flex;
+				border-radius: 4px;
+				overflow: hidden;
+				transition: 300ms ease;
+
+				.icon-input {
+					display: inline-block;
+					padding: 12px;
+					font-size: 18px;
+					background-color: $slate-100;
+					color: $slate-900;
+					font-weight: 600;
+					transition: 300ms ease;
+				}
+
+				input {
+					width: 100%;
+					border: none;
+					outline: none;
+					padding-left: 15px;
+					font-size: 18px;
+					color: $slate-900;
+					font-weight: 600;
+				}
+
+				&:hover {
+					border-color: $lime;
+				}
+
+				&:hover .icon-input {
+					background-color: $lime;
+				}
+			}
+
+			.error-msg {
+				color: $red;
+				font-size: 12px;
+				margin-top: 10px;
+				font-weight: 600;
+				display: none;
+			}
+
+			.checkboxes {
+				padding: 0 15px;
+				display: flex;
+				gap: 20px;
+
+				input {
+					width: auto;
+				}
+
+				label {
+					width: 100%;
+					padding: 15px;
+					font-weight: 800;
+					color: $slate-900;
+					font-size: 16px;
+				}
+			}
+		}
+
+		.row-inside-container {
+			display: flex;
+			gap: 20px;
+		}
+
+		#calculate-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			background-color: $lime;
+			border: none;
+			outline: none;
+			padding: 15px;
+			margin-top: 25px;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: 300ms ease;
+			font-size: 16px;
+			font-weight: 800;
+			color: $slate-900;
+
+			&:hover {
+				background-color: hsla(61, 70%, 52%, 0.589);
+			}
+		}
+	}
+
+	.right-side {
+		flex: 1;
+		background-color: $slate-900;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border-bottom-left-radius: 50px;
+
+		img {
+			width: 160px;
+			height: auto;
+		}
+
+		h3 {
+			color: $white;
+			margin: 1rem;
+		}
+
+		p {
+			color: $slate-300;
+			text-align: center;
+			font-size: 12px;
+		}
+	}
+
+	.right-side.active {
+		align-items: self-start;
+		justify-content: start;
+		display: none;
+		h4 {
+			color: $white;
+			margin-bottom: 10px;
+		}
+
+		p {
+			font-size: 14px;
+			text-align: start;
+		}
+
+		.stats-container {
+			background-color: hsl(202, 55%, 11%);
+			border-top: 3px solid $lime;
+			border-radius: 12px;
+			width: 100%;
+			padding: 25px;
+			margin-top: 35px;
+
+			span {
+				color: $slate-300;
+				font-size: 12px;
+			}
+
+			.monthly-payment {
+				margin-top: 10px;
+				color: $lime;
+				font-size: 55px;
+			}
+
+			.line {
+				height: 1px;
+				width: 100%;
+				background-color: $slate-500;
+				margin: 30px 0;
+			}
+
+			.total-payment {
+				font-size: 22px;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+@media (max-width: 920px) {
+	.container {
+		flex-direction: column;
+		margin: 1rem;
+
+		.left-side #calculate-btn {
+			padding: 10px;
+			font-size: 14px;
+			gap: 5px;
+		}
+
+		.left-side .title {
+			gap: 25px;
+		}
+	}
+}
