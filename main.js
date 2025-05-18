@@ -51,13 +51,14 @@ function calculateCredit() {
 		icon3.style.color = '#122f3f';
 	}
 
-	if (!checkboxInterested.checked || !checkboxPayment.checked) {
+	if (!checkboxPayment.checked && !checkboxInterested.checked) {
 		errorCheckboxes.style.display = 'block';
+	} else {
+		errorCheckboxes.style.display = 'none';
 	}
 
+	
 	if (checkboxPayment.checked && creditValue && years && percent) {
-		errorCheckboxes.style.display = 'none';
-
 		const months = years * 12;
 		const monthlyRate = percent / 100 / 12;
 		const pow = Math.pow(1 + monthlyRate, months);
@@ -69,8 +70,20 @@ function calculateCredit() {
 
 		rightContainer.style.display = 'none';
 		rightContainerActive.style.display = 'flex';
-	} else {
-		alert('podaj poprawne dane!');
+	} 
+
+	if (checkboxInterested.checked && creditValue && years && percent) {
+		const months = years * 12;
+		const monthlyRate = percent / 100 / 12;
+
+		const monthlyPayment = creditValue * monthlyRate;
+		const totalPayment = monthlyPayment * months;
+
+		h4Monthly.textContent = monthlyPayment.toFixed(2);
+		h4Total.textContent = totalPayment.toFixed(2);
+
+		rightContainer.style.display = 'none';
+		rightContainerActive.style.display = 'flex';
 	}
 }
 
